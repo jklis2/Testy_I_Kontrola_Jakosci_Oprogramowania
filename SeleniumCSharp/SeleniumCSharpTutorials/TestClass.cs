@@ -1,20 +1,40 @@
-﻿// NUnit 3 tests
-// See documentation : https://github.com/nunit/docs/wiki/NUnit-Documentation
-using NUnit.Framework;
-using System.Collections;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using SeleniumCSharpTutorials.BaseClass;
+using System.Threading;
 
 namespace SeleniumCSharpTutorials
 {
     [TestFixture]
-    public class TestClass
+    public class TestClass : BaseTest
     {
         [Test]
-        public void TestMethod()
+        public void TestMethod1()
         {
-            // TODO: Add your test code here
-            var answer = 42;
-            Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+            IWebElement emailTextField=driver.FindElement(By.XPath(".//*[@id='email']"));
+            emailTextField.SendKeys("Selenium C#");
         }
+
+        [Test]
+        public void TestMethod2()
+        {
+            IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
+            emailTextField.SendKeys("Selenium C#");
+        }
+
+        [Test]
+        public void TestMethod3()
+        {
+            IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
+            emailTextField.SendKeys("Selenium C#");
+            Thread.Sleep(5000);
+        }
+
     }
 }
