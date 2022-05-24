@@ -41,6 +41,5 @@ namespace SeleniumCSharpTutorials
             emailTextField.SendKeys("Selenium C#");
             Thread.Sleep(5000);
         }
-
     }
 }

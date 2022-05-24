@@ -107,6 +107,5 @@ namespace SeleniumCSharpTutorials
             emailTextField.SendKeys("Selenium C#");
             Driver.Close();
         }
-
     }
 }
