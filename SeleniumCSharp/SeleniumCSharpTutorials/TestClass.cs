@@ -18,13 +18,22 @@ namespace SeleniumCSharpTutorials
         [Test, Category("Smoke Testing")]
         public void TestMethod1()
         {
-            IWebElement emailTextField=driver.FindElement(By.XPath(".//*[@id='email']"));
+            IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
             emailTextField.SendKeys("Selenium C#");
-            IWebElement monthDropdownList=driver.FindElement(By.XPath(".//*[@id='month']"));
+            IWebElement passwordTextField = driver.FindElement(By.XPath(".//*[@id='pass']"));
+            passwordTextField.SendKeys("Selenium C#");
+
+            Thread.Sleep(2000);
+            var cookieButton = driver.FindElement(By.XPath("/html/body/div[3]/div[2]/div/div/div/div/div[3]/button[1]"));
+            cookieButton.Click();
+            var button = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[1]/form/div[5]/a"));
+            button.Click();
+            Thread.Sleep(2000);
+            IWebElement monthDropdownList = driver.FindElement(By.XPath(".//*[@id='month']"));
             SelectElement element = new SelectElement(monthDropdownList);
-            element.SelectByIndex(1); //Select by index
-            element.SelectByText("Mar"); //Select by text
-            element.SelectByValue("6"); //Select by value
+            element.SelectByIndex(1);
+            element.SelectByText("mar");
+            element.SelectByValue("6");
         }
 
         [Test, Category("Rehression Testing")]
